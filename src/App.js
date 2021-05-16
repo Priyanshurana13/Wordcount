@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Count from './Count'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+  const [state, setState] = useState(0)
+  const [num, value] = useState("")
+
+
+  function inputvalue(event){
+    value(event.target.value)
+  }  function update(){
+    setState(num)
+  } 
+
+  return(
+    <div className="abcd">
+      <h1 >Displaying frequency of top {num} words</h1>
+      <input className="input" onChange={inputvalue} type="text" placeholder="Enter Number"/>
+      <button onClick={update} className="btn">Search</button>
+      <br></br><br></br><br></br>
+      <Count number={state} />
     </div>
-  );
+  )
+
 }
 
-export default App;
+export default App
